@@ -1,0 +1,11 @@
+import requests
+from bs4 import BeautifulSoup as Soup
+
+r = requests.get("https://www.inspiredtaste.net/26600/scrambled-eggs-recipe/")
+soup = Soup(r.text, "html.parser")
+list = soup.find_all(class_="itr-ingredients")
+list2 = soup.find_all(class_= "itr-recipe-title")
+for x in list2:
+  print(x.text)
+for b in list:
+  print(b.text)
